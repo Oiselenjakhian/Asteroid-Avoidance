@@ -1,39 +1,53 @@
-import Phaser from 'phaser';
-import logoImg from './assets/logo.png';
+import Phaser from "phaser";
+import Config from "./objects/config";
+import Model from "./objects/Model";
+import BootScene from "./scenes/BootScene";
+import PreloadScene from "./scenes/PreloadScene";
+import MenuScene from "./scenes/MenuScene";
+import GameScene from "./scenes/GameScene";
+import AboutScene from "./scenes/AboutScene";
+import CreditsScene from "./scenes/CreditsScene";
+import SettingsScene from "./scenes/SettingsScene";
 
-class MyGame extends Phaser.Scene
-{
-    constructor ()
-    {
-        super();
-    }
-
-    preload ()
-    {
-        this.load.image('logo', logoImg);
-    }
-      
-    create ()
-    {
-        const logo = this.add.image(400, 150, 'logo');
-      
-        this.tweens.add({
-            targets: logo,
-            y: 450,
-            duration: 2000,
-            ease: "Power2",
-            yoyo: true,
-            loop: -1
-        });
+class MyGame extends Phaser.Game {
+    constructor() {
+        super(Config);
+        const model = new Model();
+        this.globals = { model, bgMusic: null };
+        this.scene.add("Boot", BootScene);
+        this.scene.add("Preload", PreloadScene);
+        this.scene.add("Menu", MenuScene);
+        this.scene.add("Game", GameScene);
+        this.scene.add("About", AboutScene);
+        this.scene.add("Credits", CreditsScene);
+        this.scene.add("Settings", SettingsScene);
+        this.scene.start("Boot");
     }
 }
 
-const config = {
-    type: Phaser.AUTO,
-    parent: 'phaser-example',
-    width: 800,
-    height: 600,
-    scene: MyGame
-};
+var game = new MyGame();
 
-const game = new Phaser.Game(config);
+window.onload = function () {
+    /**
+     * Resize the canvas to always appear in the viewport
+     * Credit to Emanuele Feronato
+     */
+    function resizeGame() {
+        var canvas = document.querySelector("canvas");
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        var windowRatio = windowWidth / windowHeight;
+        var gameRatio = game.config.width / game.config.height;
+        if (windowRatio < gameRatio) {
+            canvas.style.width = windowWidth + "px";
+            canvas.style.height = windowWidth / gameRatio + "px";
+        } else {
+            canvas.style.width = windowHeight * gameRatio + "px";
+            canvas.style.height = windowHeight + "px";
+        }
+    }
+
+    window.focus();
+    resizeGame();
+    window.addEventListener("resize", resizeGame);
+};
