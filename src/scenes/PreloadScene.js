@@ -6,7 +6,7 @@ export default class PreloadScene extends Phaser.Scene {
     }
 
     preload() {
-        this.add.image(400, 200, "company-logo");
+        this.add.image(400, 180, "company-logo");
 
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;
@@ -37,9 +37,26 @@ export default class PreloadScene extends Phaser.Scene {
         });
         percentText.setOrigin(0.5, 0.5);
 
+        this.load.image("menu", require("../assets/images/home.png"));
+
+        this.load.image("play", require("../assets/images/play.png"));
+
+        this.load.image("about", require("../assets/images/about.png"));
+
+        this.load.image("credits", require("../assets/images/credits.png"));
+
+        this.load.image("settings", require("../assets/images/settings.png"));
+
+        this.load.image("rocket", require("../assets/images/rocket.png"));
+
         this.load.image(
             "static-background",
             require("../assets/images/static-background.png")
+        );
+
+        this.load.image(
+            "scrolling-background",
+            require("../assets/images/space-background.png")
         );
 
         this.load.on("progress", function (value) {
