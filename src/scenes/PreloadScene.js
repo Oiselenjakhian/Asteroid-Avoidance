@@ -50,6 +50,11 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image("rocket", require("../assets/images/rocket.png"));
 
         this.load.image(
+            "rocket-fly",
+            require("../assets/images/rocket-fly.png")
+        );
+
+        this.load.image(
             "static-background",
             require("../assets/images/static-background.png")
         );

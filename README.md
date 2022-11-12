@@ -9,3 +9,9 @@ Asteroid Avoidance is a space game built with the Phaser game framework. The ins
 -   Javascript
 -   Phaser
 -   Webpack
+
+## Live Demo
+
+[Live Demo Link](http://oiselenjakhian.github.io/)
+
+## GamePlay
