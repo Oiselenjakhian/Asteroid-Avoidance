@@ -12,6 +12,24 @@ Asteroid Avoidance is a space game built with the Phaser game framework. The ins
 
 ## Live Demo
 
-[Live Demo Link](http://oiselenjakhian.github.io/)
+[Live Demo Link](https://oiselenjakhian.github.io/asteroid-avoidance/)
 
 ## GamePlay
+
+Use the joystick to control the rocket and dodge the incoming asteroids. The score is the duration of time survived.
+
+## Authors
+
+👤 **Ailende Truston Oiselenjakhian**
+
+-   Github: [Oiselenjakhian](https://github.com/Oiselenjakhian)
+-   Twitter: [@trustonailende](https://twitter.com/trustonailende)
+-   Linkedin: [Truston Ailende](https://www.linkedin.com/in/trustonailende)
+
+## Acknowledgments
+
+-   [Phaser.io](https://phaser.io/)
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.

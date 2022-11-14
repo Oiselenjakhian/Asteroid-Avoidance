@@ -42,10 +42,21 @@ export default class GameScene extends Phaser.Scene {
 
         this.player = new Player(this, 150, 300);
         this.add.existing(this.player);
-        console.log(this.player);
+        this.physics.world.enable(this.player);
+        this.player.body.setCollideWorldBounds(true);
     }
 
     update() {
         scrolling.tilePositionX += 0.5;
+
+        if (this.joyStick.up) {
+            this.player.moveUp();
+        } else if (this.joyStick.down) {
+            this.player.moveDown();
+        } else if (this.joyStick.right) {
+            this.player.moveRight();
+        } else {
+            this.player.drift();
+        }
     }
 }
