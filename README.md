@@ -32,4 +32,4 @@ Use the joystick to control the rocket and dodge the incoming asteroids. The sco
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.

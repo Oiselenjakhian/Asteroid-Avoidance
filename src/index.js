@@ -47,7 +47,7 @@ window.onload = function () {
         }
     }
 
-    window.focus();
+    window.focus();	
     resizeGame();
     window.addEventListener("resize", resizeGame);
 };

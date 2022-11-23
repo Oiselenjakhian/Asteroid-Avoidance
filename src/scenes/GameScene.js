@@ -2,6 +2,7 @@ import Phaser from "phaser";
 
 import Config from "../objects/config";
 import Player from "../objects/Player";
+import Asteroid from "../objects/Asteroid";
 
 var scrolling;
 
@@ -44,6 +45,37 @@ export default class GameScene extends Phaser.Scene {
         this.add.existing(this.player);
         this.physics.world.enable(this.player);
         this.player.body.setCollideWorldBounds(true);
+
+        this.scoreLabel = this.add
+            .text(30, 20, "Time:\t\t\t0", {
+                font: "30px Arial",
+                fill: "#fff",
+            })
+            .setScrollFactor(0, 1);
+
+        this.score = 0;
+
+        this.time.addEvent({
+            delay: 1000,
+            callback: this.updateTimer,
+            callbackScope: this,
+            loop: true,
+        });
+
+        this.asteroids = this.physics.add.group();
+
+        for (let i = 1; i <= 10; i++) {
+            let textureString = "asteroid-" + i.toString();
+            let randomY = Phaser.Math.Between(0, Config.height);
+            let asteroid = new Asteroid(
+                this,
+                Config.width,
+                randomY,
+                textureString
+            );
+            this.add.existing(asteroid);
+            this.asteroids.add(asteroid);
+        }
     }
 
     update() {
@@ -58,5 +90,10 @@ export default class GameScene extends Phaser.Scene {
         } else {
             this.player.drift();
         }
+    }
+
+    updateTimer() {
+        this.score += 1;
+        this.scoreLabel.setText(`Time:\t\t\t${this.score}`);
     }
 }

@@ -55,6 +55,56 @@ export default class PreloadScene extends Phaser.Scene {
         );
 
         this.load.image(
+            "asteroid-1",
+            require("../assets/images/asteroid-1.png")
+        );
+
+        this.load.image(
+            "asteroid-2",
+            require("../assets/images/asteroid-2.png")
+        );
+
+        this.load.image(
+            "asteroid-3",
+            require("../assets/images/asteroid-3.png")
+        );
+
+        this.load.image(
+            "asteroid-4",
+            require("../assets/images/asteroid-4.png")
+        );
+
+        this.load.image(
+            "asteroid-5",
+            require("../assets/images/asteroid-5.png")
+        );
+
+        this.load.image(
+            "asteroid-6",
+            require("../assets/images/asteroid-6.png")
+        );
+
+        this.load.image(
+            "asteroid-7",
+            require("../assets/images/asteroid-7.png")
+        );
+
+        this.load.image(
+            "asteroid-8",
+            require("../assets/images/asteroid-8.png")
+        );
+
+        this.load.image(
+            "asteroid-9",
+            require("../assets/images/asteroid-9.png")
+        );
+
+        this.load.image(
+            "asteroid-10",
+            require("../assets/images/asteroid-10.png")
+        );
+
+        this.load.image(
             "static-background",
             require("../assets/images/static-background.png")
         );
